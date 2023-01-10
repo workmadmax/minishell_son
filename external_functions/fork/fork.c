@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:53:04 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/01/10 18:09:51 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:23:00 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 /*
 	Nas minhas palavras fork() vai "clonar" o processo, vão existir dois processos
 	que "rodaram" simultaneamente cada um executando o corpo da(s) sua(s) instruções.
-	Retorna zero(0) para o proceso filho, positivo para o processo pai, e -1 em caso
+	Retorna zero(0) para o proceso filho, positivo(id do filho) para o processo pai, e -1 em caso
 	de error.
 */
 
