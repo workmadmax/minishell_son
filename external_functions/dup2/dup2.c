@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:05:00 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/01/10 19:30:54 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:40:39 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,26 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 int	main()
 {
-	int	fd1;
-	int	fd2;
+	int	fd;
 
-	fd1 = open("arquivo.txt", O_RDONLY);
-	fd2 = dup2(fd1, 10);
-	// fd1 and fd2 point to the same file
-	close(fd1);
-	// fd2 is still open and can be used to read from "arquivo.txt"
-	close(fd2);
+	fd = open("file.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error! when opening file");
+		return (1);
+	}
+	if (dup2(fd, 6) == -1)
+	{
+		perror("Error! creating copy");
+		return (1);
+	}
+	printf("Fd original: %d\n", fd);
+	printf("Fd copy: %d\n", 6);
+	close(fd);
+	close(9);
 	return (0);
 }
